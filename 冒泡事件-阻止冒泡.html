@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<body>
+  <div id="app">
+    <div style="width:200px;height:200px;background:#ddd" onclick="father()">
+      <div style="width:50px;height:50px;background: red" onclick="son()"></div>
+      <a href="www.baidu.com" onclick="jump()">走你</a>
+    </div>
+  </div>
+  <script>
+      // 冒泡事件
+        // function father(){
+        //   console.log('我是父元素')
+        // }
+        // function son(){
+        //   console.log('我是子元素')
+        // }
+
+      // 阻止冒泡方式一----e.stopPropagetion()
+        // function father(){
+        //   console.log('我是父元素')
+          
+        // }
+        // function son(){
+        //   console.log('我是子元素')
+        //   event.stopPropagation();
+        // }
+
+
+        // 阻止默认事件之二----return false
+        // function father(){
+        //   console.log('我是父元素')
+        // }
+        // function jump(){
+        //   ****return false
+        // }
+        // 阻止默认事件之一---event.preventDefault(); 
+        // function fether(){
+        //   event.preventDefault();
+        // }
+  </script>
+</body>
+</html>
