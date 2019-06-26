@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  //  JavaScript的4种继承方式
+  // 1.原型链继承----prototype这个属性指向函数的原型对象。原型对象主要用于共享实例中所包含的的属性和方法
+  function aa(){
+    this.age = 18;
+  }
+  function bb(){
+    this.name = 'make';
+  }
+  // 原型链继承
+  bb.prototype = new aa();
+  // 
+  var bb = new bb();
+
+
+  // 2. 借用构造函数式继承-----使用call的方式来借用构造函数
+  function cc(){
+    this.name = '张三';
+  }
+  function dd(name,age){
+    // 借用构造函数
+    cc.call(this);
+    this.age = 18
+  }
+var dd =new dd();
+
+
+  // 3.原型+构造函数----原型加构造函数
+  function ee(){
+    this.age = 22;
+  }
+  // 原型继承+构造
+  ee.prototype.name = '王五';
+  var ee =new ee();
+
+
+  // 4.寄生式继承----通过借用构造函数来继承属性，通过原型链的混成形式来继承方法
+  function ff(name,age){
+    this.name = name;
+    this.age = age;
+  }
+  function gg(name,age){
+    ff.call(this,name,age);
+  }
+  var gg =new gg('何六',18);
+</script>
+
+</body>
+</html>
