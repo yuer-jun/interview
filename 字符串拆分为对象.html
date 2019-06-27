@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var url = 'http://127.0.0.1:8080?uname=TOM&upwd=123456';
+    var str = url.substring(url.indexOf("?")+1);
+    var arr = str.split("&");
+    var obj = {}
+    for(var i=0;i<arr.length;i++){
+      var arri = arr[i];
+      var i2 = arri.split('=');
+      obj[i2[0]]=i2[1];
+    }
+    console.log(obj);
+  </script>
+</body>
+</html>
