@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<script>
+  var str = "cadncjindacdmcaklncnskk";
+
+  // // 查询特定字符出现的次数---例：a出现的次数
+  // 让字符串str通过a进行拆分，所得的数组的length-1就为出现的次数
+  // var arr = str.split('a');
+  // console.log("字符a出现的次数为:"+(arr.length-1)+"次");
+
+  // 查询所有字符出现的次数
+  // 创建一个空对象用于存放字符出现的次数
+  var obj = {};
+  // 对字符串进行循环
+  for(var i=0;i<str.length;i++){
+    // 将字符串的值赋值给key作为obj的属性
+    key = str[i];
+    // 判断如果obj[key]的属性值有值就++；否则就赋值为1次；
+    if(obj[key]){
+      obj[key]++;
+    }else{
+      obj[key]=1;
+    }
+  }
+  console.log(obj);
+
+</script>
+
+</body>
+</html>
