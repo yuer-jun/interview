@@ -8,14 +8,37 @@
 </head>
 <body>
   <script>
-    // 数组去重---indexOf
+    // // 数组去重---indexOf
+    // var a1 = [1,2,4,2,6,2,7,4];
+    // // 创建新数组
+    // var arr = [];
+    // // 循环将非重数据push到新数组
+    // for(var i=0;i<a1.length;i++){
+    //   if(arr.indexOf(a1[i])==-1){
+    //     arr.push(a1[i]);
+    //   }
+    // }
+    // console.log(arr);
+
+    // 数组去重
     var a1 = [1,2,4,2,6,2,7,4];
-    // 创建新数组
+    // 创建新数组接收
     var arr = [];
+    // 对原数组创建循环
     for(var i=0;i<a1.length;i++){
-      
+      // 对原数组从下一个元素开始进行循环
+      for(var n=i+1;n<a1.length;n++){
+        // 当前下标的值等于后面原数组的下标值，就将当前下标+1;
+        if(a1[i]===a1[n]){
+          i++;
+          n = i;
+        }
+      }
+      arr.push(a1[i]);
     }
-  
+    console.log(arr);
+
+
   </script>
 </body>
 </html>
