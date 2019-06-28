@@ -1,0 +1,8 @@
+js的组成结构：
+  1.  ecmaScript:js语句发布的规范，规定了js语法支持的内容：
+      ES5:严格模式，Object，create（），
+      ES6:2015年的发布的规定，主要新增：let、变量的结构赋值
+      越高版本对基础
+      包括：变量、数据类型、控制语句、函数等
+  2.  Bom:指window,document,history等API
+  3.  Dom:对HTML节点的操作
