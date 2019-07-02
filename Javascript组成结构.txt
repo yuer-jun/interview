@@ -6,3 +6,6 @@ js的组成结构：
       包括：变量、数据类型、控制语句、函数等
   2.  Bom:指window,document,history等API
   3.  Dom:对HTML节点的操作
+
+
+

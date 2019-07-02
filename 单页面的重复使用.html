@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<!-- 方法四使用js方法 -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.configHead').load('iframe.html');
+		});
+	</script>
+</head>
+<body>
+<!-- 方法一使用iframe的方式引入 -->
+<!--   <iframe src="iframe.html" frameborder="0"></iframe> -->
+
+<!-- 方法二使用使用返回数据的方式引入 -->
+<!--    <script type="text/javascript"> -->
+<!-- 		$(function() { -->
+<!-- 			$("#clickToInsert").click(function() { -->
+<!-- 				$("#placeholder").html($("#clone").val()); -->
+<!-- 				var parent = $("#complex_page_segment"); -->
+<!-- 				$(".previous", parent).click(function() {  -->
+<!-- 					$(".content", parent).html("Previous Page Content"); -->
+<!-- 				}); -->
+<!-- 				$(".next", parent).click(function() { -->
+<!-- 					$(".content", parent).html("Next Page Content"); -->
+<!-- 				}); -->
+<!-- 			}); -->
+<!-- 		}); -->
+<!-- 	</script>		  -->
+<!-- 	<input type="button" id="clickToInsert" value="Insert HTML" /> -->
+<!-- 	<div id="placeholder"> -->
+<!-- 	</div> -->
+<!-- 	<textarea id="clone" > -->
+<!-- 		<div id="complex_page_segment"> -->
+<!-- 			<input type="button" value="Previous Page" class="previous" /> -->
+<!-- 			<input type="button" value="Next Page" class="next" /> -->
+<!-- 			<div class="content">Page Content</div> -->
+<!-- 		</div> -->
+<!-- 	</textarea> -->
+
+
+<!-- 方法三使用object -->
+<!-- <object data="iframe.html"></object>  -->
+
+
+
+<!-- 方法四使用js方法  祥情见head-->
+
+
+ 
+	<div class="configHead">
+	</div>
+</body>
+</html>
