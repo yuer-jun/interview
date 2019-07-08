@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function foo(str){
+      // var str = "get-element-by-id";
+      // 将字符串拆分为数组
+      var arr = str.split("-");
+      // 取除第一个下标后数组下标下的第一个字符，并转换为大写   ，再加上对象下标的第一个字母后的字符并拼接
+      var arr1 = [];
+      arr1[0] = arr[0]
+      for(var i=1;i<arr.length;i++){
+        arr1[i]= arr[i].charAt(0).toUpperCase()+arr[i].substring(1,arr[i].length+1)
+      }
+      // console.log(arr1);
+      // 将得到的数据通过""空字符串进行拼接
+      str = arr1.join("")
+      console.log(str) 
+    }
+    foo("get-element-by-id");
+  </script>
+</body>
+</html>
