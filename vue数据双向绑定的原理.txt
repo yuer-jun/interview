@@ -1,0 +1,10 @@
+vue数据双向绑定的原理
+
+1、Observer
+  收集数据订阅者，数据变动触发notify，接着代用update方法
+2、compile
+  监听数据订阅者，收到通知后更新视图，
+3、watcher
+  订阅者，是Observer和compile之间的桥梁
+4、MVVM
+  利用watcher搭起Observer和compile之间的桥梁，达到数据变化--->更新视图;视图交互变化--->数据更新的双向绑定
