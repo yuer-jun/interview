@@ -1,0 +1,9 @@
+一、CSS Sprite合成图片
+二、合并CSS、js文件
+三、压缩文件大小
+四、结构(html)样式(css)行为(js)分离
+五、CSS文件放置在头部，js文件放置页尾加载
+六、使用CDM服务
+七、使用link加载CSS，避免使用import
+八、使用iconfont代替图片图标
+九、能使用html完成就不使用css,能使用css完成就不使用js
