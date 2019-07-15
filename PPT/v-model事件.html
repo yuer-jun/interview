@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="inputValue">{{inputValue}}
+    <textarea name="" id="" cols="30" rows="10">{{inputValue}}</textarea>
+    <br>
+    <input type="checkbox" v-model="isSelected">---------{{isSelected?"选中":"未选中"}}
+
+    <h4>我喜欢的音乐</h4>
+    <input type="checkbox" v-model="music" value="鲁冰花" />鲁冰花 
+    <input type="checkbox" v-model="music" value="星星" />星星 
+    <input type="checkbox" v-model="music" value="提莫" />提莫 
+    <br>我喜欢的音乐：<span v-for="tmp in music">{{tmp}}、</span>
+
+    <h4>我最喜欢的动物</h4>
+    <input type="radio" v-model="animal" value="猴子">猴子
+    <input type="radio" v-model="animal" value="猩猩">猩猩
+    <input type="radio" v-model="animal" value="老虎">老虎
+    <br>我最喜欢的动物：{{animal}}
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#app",
+      // 数据实例对象
+      data:{
+        inputValue:"",
+        isSelected:false,
+        music:[],
+        animal:"",
+      },
+      // 局部注册组件
+
+      //初始化父组件数据类型
+      // 计算属性
+      // Vue实例方法
+      // 监听属性
+      // filters过滤器
+      filters:{
+        
+      }
+      //  渲染函数，创建虚拟DOM树
+      // 生命周期
+        //  创建完成后
+      // 实例化渲染
+      // 实例销毁前
+
+    })
+
+
+  </script>
+
+
+</body>
+</html>
