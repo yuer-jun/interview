@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{startUpperCase}}
+
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#app",
+      // 初始化状态属性data
+      data:{
+        myName:"hanhan"
+      },
+      // 组件属性components
+      // 父组件传参，参数初始化格式props
+      
+      // vue实例操作methods
+      // 计算属性 computed
+      computed:{
+        startUpperCase(){
+          this.myName = this.myName.substring(0,1).toUpperCase()+this.myName.substring(1)
+          return this.myName
+        }
+      },
+      // 渲染创建虚拟DOM树render
+      // 过滤属性filters
+      // 监听属性watch
+
+      // 创建后属性created
+      // 渲染后属性mounted
+      // 销毁前属性beforeDestroy
+    })
+    
+  </script>
+
+</body>
+</html>
