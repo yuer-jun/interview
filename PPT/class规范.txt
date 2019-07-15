@@ -1,0 +1,10 @@
+class常用的3中规范
+1、BEM规范
+  B:block   块名
+  E:element   元素名
+  M:modifier  修饰
+2、OOCSS规范
+  方式大致和bootstrap相似，多用于大型网站，不然会造成代码冗余
+3、Eslint规范
+  可以自己创建检测规则，保持代码编写风格一致
+
