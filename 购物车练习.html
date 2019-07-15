@@ -24,7 +24,7 @@
         <!-- 商品删除按钮 -->
         <button @click="del(index)">del</button>
         <!-- 商品小计 -->
-        <span>￥{{(item.count * item.price).toFixed(2)}}</span>
+        <span>商品小计：￥{{subTotalList[index].toFixed(2)}}</span>
       </li>
     </ul>
     <!-- 商品总计 -->
@@ -33,13 +33,15 @@
   </div>
 
   <script>
-    var vm = new Vue({
+    var vm = new Vue({  
       el:"#app",
       data:{
         // 商品是否全选
         checkedAll : false,
         // 选中商品组成的数组
         checkedList:[],
+        // 商品小计
+        subTotalList:[0,0,0,0],
         // 源数据
         cartList:[
           {cid:1,name:"商品一",price:12.50,count:1},
@@ -52,7 +54,7 @@
       // props:{},
       methods:{
         // 单个商品选择
-        checkOnce(index){
+        checkOnce(){
           // 如果选中商品组成的数组的长度 小于 源数据的长度就说明 商品未全选
           if(this.checkedList.length<this.cartList.length){
             this.checkedAll = false
@@ -61,11 +63,21 @@
             this.checkedAll = true
             this.isSelected = true
           }
-        },
-        // 商品小计
-        getSubTotal(cid){
-          var subTotal = 0;
-          return subTotal
+          // 商品小计
+          if(this.checkedList.length>0){
+            for(var j=0;j<this.cartList.length;j++){
+              for(var i=0;i<this.checkedList.length;i++){
+                if(this.cartList[j]==this.checkedList[i]){
+                  this.subTotalList[j] = this.checkedList[i].price * this.checkedList[i].count
+                  break;
+                }else{
+                  this.subTotalList[j] = 0;
+                }
+              }
+            }
+          }else{
+            this.subTotalList = [0,0,0,0]
+          }
         },
         // 商品价格总计
         getTotal(){
@@ -87,9 +99,11 @@
           // 商品全选 将源数据 赋值给 选中商品的数组
           if(this.checkedAll){
             this.checkedList = this.cartList
+            this.checkOnce();
           // 商品未全选 将选中商品的数组 赋值为 空数组
           }else{
             this.checkedList = []
+            this.subTotalList = [0,0,0,0]
           }
         }
       },
