@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>购物车</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 商品是否全选 -->
+    全选<input type="checkbox" v-model="checkedAll" @change="checkAll" />
+    <!-- 单个商品详情 -->
+    <ul>
+      <li v-for="(item,index) in cartList" :key="index">
+        <label :for="item.cid">
+          <input type="checkbox" :id="item.cid" v-model="checkedList" @change="checkOnce()" v-model="checked" :value="item"/>{{item}}
+        </label>
+        <!-- 商品数量加减按钮 -->
+        <button @click="item.count--" :disabled="item.count==1">-</button>
+        <span><input type="text" v-model="item.count" style="width:25px;" value="item.count==''?item.count=1:item.count"></span>
+        <button @click="item.count++">+</button>
+        <!-- 商品删除按钮 -->
+        <button @click="del(index)">del</button>
+        <!-- 商品小计 -->
+        <span>￥{{(item.count * item.price).toFixed(2)}}</span>
+      </li>
+    </ul>
+    <!-- 商品总计 -->
+    <p>总计：￥{{getTotal().toFixed(2)}}</p>
+    <!-- {{checkedList}} -->
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el:"#app",
+      data:{
+        // 商品是否全选
+        checkedAll : false,
+        // 选中商品组成的数组
+        checkedList:[],
+        // 源数据
+        cartList:[
+          {cid:1,name:"商品一",price:12.50,count:1},
+          {cid:2,name:"商品二",price:17.50,count:3},
+          {cid:3,name:"商品三",price:22.50,count:5},
+          {cid:4,name:"商品四",price:27.50,count:2}
+        ],
+      },
+      // components:{},
+      // props:{},
+      methods:{
+        // 单个商品选择
+        checkOnce(index){
+          // 如果选中商品组成的数组的长度 小于 源数据的长度就说明 商品未全选
+          if(this.checkedList.length<this.cartList.length){
+            this.checkedAll = false
+          // 如果选中商品组成的数组的长度 等于 源数据的长度就说明 商品全选
+          }else if(this.checkedList.length==this.cartList.length){
+            this.checkedAll = true
+            this.isSelected = true
+          }
+        },
+        // 商品小计
+        getSubTotal(cid){
+          var subTotal = 0;
+          return subTotal
+        },
+        // 商品价格总计
+        getTotal(){
+          var total = 0;
+          for(var tmp of this.checkedList){
+            total += tmp.price * tmp.count
+          }
+          return total
+        },
+        // 删除商品
+        del(index){
+          var isDel = confirm("确定要删除该商品")
+          if(isDel){
+            this.cartList.splice(index,1);
+          }
+        },
+        // 全选商品是否全选
+        checkAll(){
+          // 商品全选 将源数据 赋值给 选中商品的数组
+          if(this.checkedAll){
+            this.checkedList = this.cartList
+          // 商品未全选 将选中商品的数组 赋值为 空数组
+          }else{
+            this.checkedList = []
+          }
+        }
+      },
+      // conputed:{},
+      // watch:{},
+      // render:{},
+      // filters:{},
+      // created:{},
+      // mounted:{},
+      // beforeDestroy:{},
+
+    })
+  </script>
+
+</body>
+</html>
