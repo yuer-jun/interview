@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{count}}
+    <br>
+    <!-- 通过函数调用方式触发 -->
+    <button @click="handleClickAdd">函数调用</button>
+    <!-- 通过函数名调用方式触发 -->
+    <button @click="handleClickAdd()">函数名调用</button>
+    <!-- 通过表达式方式触发 -->
+    <button @click="count<10?count++:count=10">表达式方式</button><br><br><hr><br><br>
+    <!-- 键盘按键绑定 -->
+    <input type="text" @keydown="handleClick" />
+    <!-- 阻止冒泡和非自身点击 -->
+    <ul @click.self="handleUlClick">
+      <li @click.stop="handleLiClick1">1111</li>
+      <!-- 只允许事件触发一次 -->
+      <li @click.once="handleLiClick2">2222</li>
+      <!-- 只允许事件触发一次 -->
+      <li @click="isActive && handleLiClick3()">3333</li>
+    </ul>
+    <!-- 阻止默认事件 -->
+    <a href="http://www.baidu.com" @click.prevent="handleAClick">百度一下</a>
+  </div>
+  <script>
+    var vm = new Vue({
+      el:"#app",
+      data:{
+        count:1,
+        msg:"",
+        isActive:true,
+      },
+      methods:{
+        handleClickAdd(){
+          this.count++
+        },
+        handleClick(ev){
+          console.log(ev.keyCode,ev.target.value);
+        },
+        handleUlClick(){
+          console.log("handleUlClick")
+        },
+        handleLiClick1(){
+          console.log("handleLiClick1")
+        },
+        handleLiClick2(){
+          console.log("handleLiClick2")
+        },
+        handleLiClick3(){
+          console.log("handleLiClick3")
+          this.isActive = false;
+        },
+        handleAClick(){
+          console.log("handleAClick") 
+        },
+      },
+    })
+  </script>
+</body>
+</html>
